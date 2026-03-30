@@ -1,0 +1,77 @@
+* {
+    font-family: Iosevka Nerd Font;
+    font-size: 18px;
+	border-radius: 0;
+    padding: 0;
+}
+
+window#waybar {
+	background-color: #141415;
+	color: #cdcdcd;
+}
+
+#workspaces button {
+    background-color: transparent;
+    color: #cdcdcd;
+}
+
+#workspaces button:hover {
+    background: #252530;
+}
+
+#workspaces button.focused {
+	background-color: #aeaed1;
+	color: #141415;
+}
+
+#workspaces button.urgent {
+    background-color: #d8647e;
+    color: #141415;
+}
+
+#clock,
+#battery,
+#backlight,
+#pulseaudio,
+#wireplumber,
+#custom-media,
+#tray,
+#mode,
+#idle_inhibitor,
+#power-profiles-daemon,
+#scratchpad {
+    padding: 0 10px;
+    color: #cdcdcd;
+}
+
+#scratchpad, #tray, #idle_inhibitor, #power-profiles-daemon {
+	background-color: #252530
+}
+
+#idle_inhibitor.activated {
+	background-color: #bebeda;
+	color: #141415;
+}
+
+#mode {
+    background-color: #d8647e;
+	color: #141415;
+}
+
+#custom-media {
+	background-color: #aeaed1;
+	color: #141415;
+	min-width: 250px;
+}
+
+#power-profiles-daemon.performance {
+    color: #d8647e;
+}
+
+#power-profiles-daemon.balanced {
+    color: #6e94b2;
+}
+
+#power-profiles-daemon.power-saver {
+    color: #7fa563;
+}
