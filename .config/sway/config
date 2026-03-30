@@ -35,7 +35,7 @@ exec swayidle -w \
 
 input type:keyboard {
 	xkb_layout "us"
-		repeat_delay 300
+		repeat_delay 400
 }
 
 ### Key bindings
@@ -162,10 +162,11 @@ smart_borders on
 for_window [class="^.*"] border pixel 3
 
 ### Autostart 
+# manually starting it since for some reason it doesn't start on its own
+exec --no-startup-id systemctl --user start xdg-desktop-portal-wlr
 exec --no-startup-id mako
 exec --no-startup-id nm-applet
 exec --no-startup-id blueman-applet
-# manually starting it since for some reason it doesn't start on its own
-exec --no-startup-id systemctl --user start xdg-desktop-portal-wlr
+exec --no-startup-id gammastep-indicator -c ~/.config/gammastep/gammastep.conf
 
 include /etc/sway/config.d/*
