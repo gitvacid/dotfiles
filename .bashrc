@@ -2,7 +2,8 @@
 # If not running interactively, don't do anything
 [[ $- != *i* ]] && return
 
-PS1='[\w]\$ '
+source /usr/share/git/completion/git-prompt.sh
+PS1='[\w]$(__git_ps1 " (%s) ")\$ '
 
 alias ls='ls -lFh --color=auto'
 alias la='ls -lAFh --color=auto'
