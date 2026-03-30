@@ -11,8 +11,7 @@ set $menu rofi -show drun
 output eDP-1 resolution 1920x1080 position 1920,0
 
 ### Wallpaper 
-# output * bg ~/pictures/wallpapers/lighthouse.png fill
-output * bg ~/pictures/wallpapers/noctalia.png fill
+output * bg ~/dotfiles/wallpapers/crybaby.png fill
 
 ### Idle configuration
 # This will lock your screen after 300 seconds of inactivity, then turn off
