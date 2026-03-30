@@ -132,7 +132,6 @@ mode "resize" {
 		bindsym Up resize shrink height 10px
 		bindsym Right resize grow width 10px
 
-		bindsym Return mode "default"
 		bindsym Escape mode "default"
 } 
 bindsym $mod+r mode "resize"
@@ -166,3 +165,7 @@ for_window [class="^.*"] border pixel 3
 exec --no-startup-id mako
 exec --no-startup-id nm-applet
 exec --no-startup-id blueman-applet
+# manually starting it since for some reason it doesn't start on its own
+exec --no-startup-id systemctl --user start xdg-desktop-portal-wlr
+
+include /etc/sway/config.d/*

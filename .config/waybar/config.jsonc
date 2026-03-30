@@ -4,7 +4,8 @@
     "modules-left": [
         "sway/workspaces",
         "sway/mode",
-        "sway/scratchpad"
+        "sway/scratchpad",
+		"sway/window"
     ],
     "modules-right": [
         "mpd",

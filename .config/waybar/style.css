@@ -10,6 +10,10 @@ window#waybar {
 	color: #cdcdcd;
 }
 
+window#waybar.empty #window {
+    opacity: 0;
+}
+
 #workspaces button {
     background-color: transparent;
     color: #cdcdcd;
@@ -39,12 +43,13 @@ window#waybar {
 #mode,
 #idle_inhibitor,
 #power-profiles-daemon,
+#window,
 #scratchpad {
     padding: 0 10px;
     color: #cdcdcd;
 }
 
-#scratchpad, #tray, #idle_inhibitor, #power-profiles-daemon {
+#window, #tray, #idle_inhibitor, #power-profiles-daemon {
 	background-color: #252530
 }
 
