@@ -1,0 +1,9 @@
+#!/bin/sh
+
+# Get current brightness
+brightness=$(brightnessctl info | grep %)
+brightness=$(echo $brightness | sed -e 's/.*(//' -e 's/)//')
+echo $brightness
+
+# Send notification
+notify-send -t 1000 -a 'brt' -h int:value:$brightness "Brightness: ${brightness}"

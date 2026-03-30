@@ -148,8 +148,8 @@ bindsym --locked XF86AudioLowerVolume exec pactl set-sink-volume \@DEFAULT_SINK@
 bindsym --locked XF86AudioRaiseVolume exec pactl set-sink-volume \@DEFAULT_SINK@ +5% && ~/.config/mako/wp-vol
 bindsym --locked XF86AudioMicMute exec pactl set-source-mute \@DEFAULT_SOURCE@ toggle
 # Adjust brightness
-bindsym --locked XF86MonBrightnessDown exec brightnessctl set 5%-
-bindsym --locked XF86MonBrightnessUp exec brightnessctl set 5%+
+bindsym --locked XF86MonBrightnessDown exec brightnessctl set 5%- && ~/.config/mako/brt
+bindsym --locked XF86MonBrightnessUp exec brightnessctl set 5%+ && ~/.config/mako/brt
 # Take a screenshot with grim/slurp
 bindsym Print exec --no-startup-id slurp | grim -g - - | tee  $HOME/pictures/screenshots/$(date +'screenshot_%Y-%m-%d-%H%M%S.png') | wl-copy && notify-send "Area" "Screenshot captured"
 bindsym Shift+Print exec --no-startup-id grim - | tee  $HOME/pictures/screenshots/$(date +'screenshot_%Y-%m-%d-%H%M%S.png') | wl-copy && notify-send "Fullscreen" "Screenshot captured"
