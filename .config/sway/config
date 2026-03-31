@@ -30,9 +30,9 @@ client.background       $bg
 
 ### Idle configuration
 exec swayidle -w \
-		 timeout 300 'swaylock -f -c 000000' \
+		 timeout 300 '$HOME/scripts/blur-lock.sh' \
 		 timeout 600 'swaymsg "output * power off"' resume 'swaymsg "output * power on"' \
-		 before-sleep 'swaylock -f -c 000000'
+		 before-sleep '$HOME/scripts/blur-lock.sh'
 
 ### Input configuration
 # Read `man 5 sway-input` for more information about this section.

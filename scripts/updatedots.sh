@@ -9,6 +9,7 @@ cp -r ~/.config/waybar ~/dotfiles/.config/
 cp -r ~/.config/gammastep/ ~/dotfiles/.config/
 cp ~/.bashrc ~/dotfiles/
 cp ~/scripts/updatedots.sh ~/dotfiles/scripts/
+cp ~/scripts/blur-lock.sh ~/dotfiles/scripts/
 cd ~/dotfiles
 git add --all
 git commit
