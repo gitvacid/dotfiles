@@ -24,7 +24,7 @@ window#waybar.empty #window {
 }
 
 #workspaces button.focused {
-	background-color: #aeaed1;
+	background-color: #8ba9c1;
 	color: #141415;
 }
 
@@ -68,7 +68,10 @@ window#waybar.empty #window {
 	color: #141415;
 }
 
-#idle_inhibitor:hover, #custom-media:hover, #power-profiles-daemon:hover {
+#scratchpad:hover, 
+#idle_inhibitor:hover,
+#custom-media:hover,
+#power-profiles-daemon:hover {
 	background-color: #606079;
 }
 
