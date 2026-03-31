@@ -34,6 +34,7 @@ vim.o.scrolloff = 18
 local map = vim.keymap.set
 map('n', '<leader>e', vim.cmd.Ex)
 map('n', '<leader>w', vim.cmd.write)
+map({'n', 'i'}, '<C-s>', vim.cmd.write)
 map('n', '<leader>q', vim.cmd.quit)
 map('n', '<leader>o', vim.cmd.source)
 map('n', '<Esc>', vim.cmd.nohlsearch)

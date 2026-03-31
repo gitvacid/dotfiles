@@ -14,7 +14,7 @@ output eDP-1 resolution 1920x1080
 ### Wallpaper 
 output * bg ~/dotfiles/wallpapers/crybaby.png fill
 
-# colors
+### colors
 set $fg #cdcdcd
 set $bd #606079
 set $bg #252530
@@ -36,17 +36,17 @@ exec swayidle -w \
 
 ### Input configuration
 # Read `man 5 sway-input` for more information about this section.
-		 input type:touchpad {
-			 dwt enabled
-				 tap enabled
-				 natural_scroll enabled
-				 middle_emulation enabled
-				 drag_lock disabled
-		 }
-
 input type:keyboard {
 	xkb_layout "us"
-		repeat_delay 400
+	repeat_delay 400
+}
+
+input type:touchpad {
+	dwt enabled
+	tap enabled
+	natural_scroll enabled
+	middle_emulation enabled
+	drag_lock disabled
 }
 
 ### Key bindings
@@ -165,14 +165,14 @@ bindsym --locked XF86MonBrightnessUp exec brightnessctl set 5%+ && ~/.config/mak
 bindsym Print exec --no-startup-id slurp | grim -g - - | tee  $HOME/pictures/screenshots/$(date +'screenshot_%Y-%m-%d-%H%M%S.png') | wl-copy && notify-send "Area" "Screenshot captured"
 bindsym Shift+Print exec --no-startup-id grim - | tee  $HOME/pictures/screenshots/$(date +'screenshot_%Y-%m-%d-%H%M%S.png') | wl-copy && notify-send "Fullscreen" "Screenshot captured"
 # Color picker
-bindsym $mod+Shift+P exec --no-startup-id notify-send "Color" $(hyprpicker -a) 
+bindsym $mod+Shift+P exec --no-startup-id notify-send "hyprpicker" $(hyprpicker -a) 
 
 ### Status Bar:
 bar swaybar_command waybar
 
 ### Window Rules
 smart_borders on
-for_window [class="^.*"] border pixel 0
+for_window [class="^.*"] border pixel 1
 
 ### Autostart 
 exec --no-startup-id mako

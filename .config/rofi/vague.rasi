@@ -1,0 +1,46 @@
+* {
+    highlight: bold italic;
+    scrollbar: true;
+	font: "Iosevka Nerd Font 15";
+
+    /* Vague colors */
+    vague-bg0:          #141415;
+    vague-bg0-soft:     #252530;
+    vague-bg3:          #aeaed1;
+    vague-fg0:          #c3c3d5;
+    vague-fg1:          #cdcdcd;
+    vague-red: 			#d8647e;
+    vague-peach:	    #c48282;
+    vague-gold: 		#e0a363;
+    vague-yellow:		#f3be7c;
+    vague-gray:         #878787;
+
+    /* Theme colors */
+    background:                  @vague-bg0;
+    background-color:            @background;
+    foreground:                  @vague-fg1;
+    border-color:                @vague-gray;
+    separatorcolor:              @border-color;
+    scrollbar-handle:            @vague-bg3;
+
+    normal-background:           @background;
+    normal-foreground:           @foreground;
+    alternate-normal-background: @vague-bg0-soft;
+    alternate-normal-foreground: @foreground;
+    selected-normal-background:  @vague-bg3;
+    selected-normal-foreground:  @vague-bg0;
+
+    active-background:           @vague-gold;
+    active-foreground:           @background;
+    alternate-active-background: @active-background;
+    alternate-active-foreground: @active-foreground;
+    selected-active-background:  @vague-yellow;
+    selected-active-foreground:  @active-foreground;
+
+    urgent-background:           @vague-red;
+    urgent-foreground:           @background;
+    alternate-urgent-background: @urgent-background;
+    alternate-urgent-foreground: @urgent-foreground;
+    selected-urgent-background:  @vague-peach;
+    selected-urgent-foreground:  @urgent-foreground;
+}

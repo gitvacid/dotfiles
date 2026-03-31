@@ -20,12 +20,11 @@ window#waybar.empty #window {
 }
 
 #workspaces button:hover {
-    background: #606079;
+    background: #333738
 }
 
 #workspaces button.focused {
-	background-color: #8ba9c1;
-	color: #141415;
+	background-color: #606079;
 }
 
 #workspaces button.urgent {
