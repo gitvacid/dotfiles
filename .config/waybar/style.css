@@ -20,7 +20,7 @@ window#waybar.empty #window {
 }
 
 #workspaces button:hover {
-    background: #252530;
+    background: #606079;
 }
 
 #workspaces button.focused {
@@ -38,10 +38,10 @@ window#waybar.empty #window {
 #backlight,
 #pulseaudio,
 #wireplumber,
-#custom-media,
 #tray,
 #mode,
 #idle_inhibitor,
+#custom-media,
 #power-profiles-daemon,
 #window,
 #scratchpad {
@@ -66,7 +66,10 @@ window#waybar.empty #window {
 #custom-media {
 	background-color: #aeaed1;
 	color: #141415;
-	min-width: 250px;
+}
+
+#idle_inhibitor:hover, #custom-media:hover, #power-profiles-daemon:hover {
+	background-color: #606079;
 }
 
 #power-profiles-daemon.performance {

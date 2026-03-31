@@ -5,11 +5,10 @@
         "sway/workspaces",
         "sway/mode",
         "sway/scratchpad",
+        "custom/media",
 		"sway/window"
     ],
     "modules-right": [
-        "mpd",
-        "custom/media",
         "idle_inhibitor",
         "backlight",
         "power-profiles-daemon",
@@ -75,13 +74,12 @@
         "on-click-right": "pavucontrol"
     },
     "custom/media": {
-        "format": "{icon} {text}",
-        "return-type": "json",
-        "max-length": 40,
-        "format-icons": {
-            "spotify": " "
-        },
-        "escape": true,
-        "exec": "$HOME/.config/waybar/mediaplayer.py 2> /dev/null"
+		"format": "{}",
+		"return-type": "json",
+		"exec": "playerctl -F metadata -f '{\"text\": \"🎜 {{markup_escape(artist)}} - {{markup_escape(title)}}\"}'",
+		"max-length": 40,
+		"escape": "true",
+		"on-click": "playerctl play-pause",
+		"on-click-right": "playerctl stop"
     }
 }

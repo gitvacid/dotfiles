@@ -5,18 +5,30 @@ set $up k
 set $right l
 set $term foot
 set $menu rofi -show drun
+font pango:Iosevka Nerd Font 12
 
 ### Output configuration
 # You can get the names of your outputs by running: swaymsg -t get_outputs
-output eDP-1 resolution 1920x1080 position 1920,0
+output eDP-1 resolution 1920x1080
 
 ### Wallpaper 
 output * bg ~/dotfiles/wallpapers/crybaby.png fill
 
+# colors
+set $fg #cdcdcd
+set $bd #606079
+set $bg #252530
+
+# class                 border  backgr. text indicator child_border
+client.focused          $bd     $bg     $fg  $bg       $bd
+client.focused_inactive $bg     $bg     $fg  $bg       $bg
+client.unfocused        $bg     $bg     $fg  $bg       $bg
+client.urgent           $bg     $bg     $fg  $bg       $bg
+client.placeholder      $bg     $bg     $fg  $bg       $bg
+
+client.background       $bg
+
 ### Idle configuration
-# This will lock your screen after 300 seconds of inactivity, then turn off
-# your displays after another 300 seconds, and turn your screens back on when
-# resumed. It will also lock your screen before your computer goes to sleep.
 exec swayidle -w \
 		 timeout 300 'swaylock -f -c 000000' \
 		 timeout 600 'swaymsg "output * power off"' resume 'swaymsg "output * power on"' \
@@ -152,6 +164,8 @@ bindsym --locked XF86MonBrightnessUp exec brightnessctl set 5%+ && ~/.config/mak
 # Take a screenshot with grim/slurp
 bindsym Print exec --no-startup-id slurp | grim -g - - | tee  $HOME/pictures/screenshots/$(date +'screenshot_%Y-%m-%d-%H%M%S.png') | wl-copy && notify-send "Area" "Screenshot captured"
 bindsym Shift+Print exec --no-startup-id grim - | tee  $HOME/pictures/screenshots/$(date +'screenshot_%Y-%m-%d-%H%M%S.png') | wl-copy && notify-send "Fullscreen" "Screenshot captured"
+# Color picker
+bindsym $mod+Shift+P exec --no-startup-id notify-send "Color" $(hyprpicker -a) 
 
 ### Status Bar:
 bar swaybar_command waybar
@@ -161,11 +175,13 @@ smart_borders on
 for_window [class="^.*"] border pixel 3
 
 ### Autostart 
-# manually starting it since for some reason it doesn't start on its own
-exec --no-startup-id systemctl --user start xdg-desktop-portal-wlr
 exec --no-startup-id mako
+exec --no-startup-id autotiling-rs
 exec --no-startup-id nm-applet
 exec --no-startup-id blueman-applet
 exec --no-startup-id gammastep-indicator -c ~/.config/gammastep/gammastep.conf
+
+# manually starting it since for some reason it doesn't start on its own
+exec --no-startup-id systemctl --user start xdg-desktop-portal-wlr
 
 include /etc/sway/config.d/*
