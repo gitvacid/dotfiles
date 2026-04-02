@@ -76,8 +76,8 @@
     },
     "custom/media": {
 		"format": "{}",
-		"return-type": "json",
-		"exec": "playerctl -F metadata -f '{\"text\": \"🎜 {{markup_escape(artist)}} - {{markup_escape(title)}}\"}'",
+		"exec": "~/scripts/media_player.sh",
+		"interval": 1,
 		"max-length": 40,
 		"escape": "true",
 		"on-click": "playerctl play-pause",
