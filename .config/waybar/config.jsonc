@@ -49,6 +49,10 @@
         "format": "brt: {percent}%"
     },
     "battery": {
+		"states": {
+			"warning": 30,
+			"critical": 15
+		},
         "format": "bat: {capacity}%",
         "format-full": "bat: {capacity}%",
         "format-charging": "bat: {capacity}% (charging)",
@@ -77,8 +81,8 @@
     "custom/media": {
 		"format": "{}",
 		"exec": "~/scripts/media_player.sh",
-		"interval": 1,
 		"max-length": 40,
+		"interval": 1,
 		"escape": "true",
 		"on-click": "playerctl play-pause",
 		"on-click-right": "playerctl stop"

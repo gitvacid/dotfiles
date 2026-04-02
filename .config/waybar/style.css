@@ -2,7 +2,7 @@
     font-family: Iosevka Nerd Font;
     font-size: 18px;
 	border-radius: 0;
-    padding: 0;
+	padding: 0;
 }
 
 window#waybar {
@@ -33,7 +33,8 @@ window#waybar.empty #window {
 }
 
 #clock,
-#battery,
+#battery.charging, 
+#battery.plugged,
 #backlight,
 #pulseaudio,
 #wireplumber,
@@ -44,8 +45,9 @@ window#waybar.empty #window {
 #power-profiles-daemon,
 #window,
 #scratchpad {
-    padding: 0 10px;
     color: #cdcdcd;
+    background-color: #141415;
+    padding: 0 10px;
 }
 
 #window, #tray, #idle_inhibitor, #power-profiles-daemon {
@@ -84,4 +86,34 @@ window#waybar.empty #window {
 
 #power-profiles-daemon.power-saver {
     color: #7fa563;
+}
+
+#battery{
+    background-color: #7fa563;
+    color: #141415;
+    padding: 0 10px;
+}
+
+#battery.warning:not(.charging) {
+    background-color: #e0a363;
+    color: #141415;
+    padding: 0 10px;
+}
+
+@keyframes blink {
+    to {
+        background-color: #141415;
+        color: #cdcdcd;
+    }
+}
+
+#battery.critical:not(.charging) {
+    background-color: #d8647e;
+    color: #141415;
+    padding: 0 10px;
+    animation-name: blink;
+    animation-duration: 0.5s;
+    animation-timing-function: steps(12);
+    animation-iteration-count: infinite;
+    animation-direction: alternate;
 }
