@@ -1,12 +1,11 @@
 background-color=#141415
 border-color=#cdcdcd
 font=Iosevka Nerd Font 14
+default-timeout=7000
 
 on-button-left=invoke-default-action
-on-button-right=dismiss
-on-button-middle=exec makoctl menu -- rofi -dmenu
-
-default-timeout=7000
+on-button-right=exec makoctl menu -- ~/.config/mako/options
+on-button-middle=dismiss
 
 [urgency=high]
 border-color=#d8647e

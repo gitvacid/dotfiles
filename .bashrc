@@ -3,11 +3,11 @@
 [[ $- != *i* ]] && return
 
 source /usr/share/git/completion/git-prompt.sh
-PS1='[\w]$(__git_ps1 " (%s) ")\$ '
+PS1='[\w]$(__git_ps1 " (%s) ") \$ '
 
 alias ls='ls -lFh --color=auto'
 alias la='ls -lAFh --color=auto'
 alias grep='grep --color=auto'
 alias swconf='nvim ~/.config/sway/config'
 alias ff='fastfetch -c ~/.config/fastfetch/ff.jsonc'
-alias updot='~/scripts/updatedots.sh'
+alias updot='~/scripts/update_dots.sh'

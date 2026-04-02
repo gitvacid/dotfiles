@@ -1,0 +1,9 @@
+#!/bin/sh
+rofi -theme-str 'window {location: center; padding: 0; width: 250px;}' \
+		 -theme-str 'mainbox {children: [ "message", "listview" ];}' \
+		 -theme-str 'message {border: 0;}' \
+		 -theme-str 'listview {scrollbar: false; lines: 1; columns: 2;}' \
+		 -theme-str 'element-text {horizontal-align: 0.5;}' \
+		 -theme-str 'textbox {horizontal-align: 0.5;}' \
+		 -dmenu \
+		 -mesg 'Choose an option'
