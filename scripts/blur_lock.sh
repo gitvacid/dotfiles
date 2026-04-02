@@ -1,9 +1,9 @@
 #!/bin/sh
-PICTURE="/tmp/blurlock.png"
+picture="/tmp/blurlock.png"
 
-grim $PICTURE
-magick $PICTURE -blur 0x5 $PICTURE
-swaylock -fi $PICTURE \
+grim $picture
+magick $picture -blur 0x5 $picture
+swaylock -fi $picture \
 	--font "Iosevka Nerd Font" \
 	--indicator-radius 100 \
 	--ring-color aeaed1 \
@@ -22,5 +22,5 @@ swaylock -fi $PICTURE \
 	--text-wrong-color cdcdcd \
 	--text-caps-lock-color e0a363
 
-shred $PICTURE
-rm $PICTURE
+shred $picture
+rm $picture
