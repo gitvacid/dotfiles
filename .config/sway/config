@@ -178,8 +178,6 @@ smart_borders on
 for_window [class="^.*"] border pixel 1
 for_window [title="Rename*"] floating enable
 
-
-
 ### Autostart 
 exec --no-startup-id mako
 exec --no-startup-id nm-applet
