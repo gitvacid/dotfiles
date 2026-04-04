@@ -32,7 +32,6 @@ vim.o.scrolloff = 18
 
 -- keybindings
 local map = vim.keymap.set
-map('n', '<leader>e', vim.cmd.Ex)
 map('n', '<leader>w', vim.cmd.write)
 map({'n', 'i'}, '<C-s>', vim.cmd.write)
 map('n', '<leader>q', vim.cmd.quit)
@@ -49,6 +48,8 @@ map('n', '<C-h>', '<C-w><C-h>')
 map('n', '<C-j>', '<C-w><C-j>')
 map('n', '<C-k>', '<C-w><C-k>')
 map('n', '<C-l>', '<C-w><C-l>')
+map('n', '<leader>t', ':sp term://bash<CR>')
+map('t', '<Esc>', '<C-\\><C-n>')
 
 -- Setup lazy.nvim
 require("lazy").setup({
@@ -70,6 +71,21 @@ require("lazy").setup({
 			config = function()
 				require('nvim-highlight-colors').setup({})
 			end
+		},
+		{
+				"nvim-neo-tree/neo-tree.nvim",
+				branch = "v3.x",
+				dependencies = {
+					"nvim-lua/plenary.nvim",
+					"MunifTanjim/nui.nvim",
+					"nvim-tree/nvim-web-devicons", -- optional, but recommended
+				},
+				lazy = false, -- neo-tree will lazily load itself
+				config = function()
+					require("neo-tree").setup({
+					})
+					map('n', '<leader>e', ':Neotree toggle<CR>')
+				end
 		},
 	},
 	install = { colorscheme = { "habamax" } },

@@ -13,7 +13,7 @@ font pango:Iosevka Nerd Font 12
 output eDP-1 resolution 1920x1080
 
 ### Wallpaper 
-output * bg ~/dotfiles/wallpapers/crybaby.png fill
+output * bg ~/dotfiles/wallpapers/terrible_fate.png fill
 
 ### colors
 set $fg #cdcdcd
@@ -176,6 +176,9 @@ bar swaybar_command waybar
 ### Window Rules
 smart_borders on
 for_window [class="^.*"] border pixel 1
+for_window [title="Rename*"] floating enable
+
+
 
 ### Autostart 
 exec --no-startup-id mako

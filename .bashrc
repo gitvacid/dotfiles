@@ -3,7 +3,7 @@
 [[ $- != *i* ]] && return
 
 source /usr/share/git/completion/git-prompt.sh
-PS1='[\w]$(__git_ps1 " (%s) ") \$ '
+PS1='\u@\h:\w$(__git_ps1 " (%s) ")\$ '
 
 alias ls='ls -lFh --color=auto'
 alias la='ls -lAFh --color=auto'

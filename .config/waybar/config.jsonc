@@ -54,10 +54,10 @@
 			"critical": 15
 		},
         "format": "bat: {capacity}%",
-        "format-full": "bat: {capacity}%",
         "format-charging": "bat: {capacity}% (charging)",
         "format-plugged": "bat: {capacity}% (plugged)",
-        "format-alt": "{time} left"
+        "format-alt": "{time} left",
+        "format-full": "bat: full"
         // "format-full": ""
     },
     "power-profiles-daemon": {

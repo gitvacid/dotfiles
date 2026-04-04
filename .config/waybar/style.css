@@ -35,6 +35,7 @@ window#waybar.empty #window {
 #clock,
 #battery.charging, 
 #battery.plugged,
+#battery.full,
 #backlight,
 #pulseaudio,
 #wireplumber,
