@@ -13,7 +13,7 @@ font pango:Iosevka Nerd Font 12
 output eDP-1 resolution 1920x1080
 
 ### Wallpaper 
-output * bg ~/dotfiles/wallpapers/terrible_fate.png fill
+include "./wallpaper"
 
 ### colors
 set $fg #cdcdcd
