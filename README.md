@@ -1,3 +1,6 @@
-## Screenshots
-<img src="/screenshot/first_shot.png"/>
-<img src="/screenshot/shot2.png"/>
+# Screenshots:
+<p align="center">
+    <img src="./screenshots/shot1.png"/>
+    <img src="./screenshots/shot2.png"/>
+    <img src="./screenshots/shot3.png"/>
+</p>
