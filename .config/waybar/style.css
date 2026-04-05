@@ -56,7 +56,7 @@ window#waybar.empty #window {
 }
 
 #idle_inhibitor.activated {
-	background-color: #bebeda;
+	background-color: #aeaed1;
 	color: #141415;
 }
 
