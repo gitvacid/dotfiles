@@ -13,6 +13,8 @@ vim.o.splitbelow = true
 vim.o.shiftwidth = 4
 vim.o.tabstop = 4
 vim.o.scrolloff = 18
+vim.o.winborder = "bold"
+vim.o.signcolumn = "yes"
 
 -- keybindings
 local map = vim.keymap.set
@@ -44,11 +46,53 @@ map('t', '<Esc>', '<C-\\><C-n>')
 vim.pack.add({
   "https://github.com/vague-theme/vague.nvim",
   "https://github.com/brenoprata10/nvim-highlight-colors", 
+  "https://github.com/vyfor/cord.nvim",
+  "https://github.com/neovim/nvim-lspconfig",
 })
 
+require("cord").setup({})
 -- colors
-require('nvim-highlight-colors').setup({})
 require("vague").setup({
 	italic = false,
 })
+require('nvim-highlight-colors').setup({})
 vim.cmd("colorscheme vague")
+
+
+-- lsp & stuff
+vim.lsp.enable({
+	"clangd",
+})
+vim.cmd[[set completeopt+=menuone,noselect,popup]]
+-- grabbed it straight from the docs
+vim.api.nvim_create_autocmd('LspAttach', {
+	group = vim.api.nvim_create_augroup('my.lsp', {}),
+	callback = function(ev)
+		local client = assert(vim.lsp.get_client_by_id(ev.data.client_id))
+		if client:supports_method('textDocument/implementation') then
+			-- Create a keymap for vim.lsp.buf.implementation ...
+		end
+
+		-- Enable auto-completion. Note: Use CTRL-Y to select an item. |complete_CTRL-Y|
+		if client:supports_method('textDocument/completion') then
+			-- Optional: trigger autocompletion on EVERY keypress. May be slow!
+			local chars = {}; for i = 32, 126 do table.insert(chars, string.char(i)) end
+			client.server_capabilities.completionProvider.triggerCharacters = chars
+
+			vim.lsp.completion.enable(true, client.id, ev.buf, {autotrigger = true})
+		end
+
+		-- Auto-format ("lint") on save.
+		-- Usually not needed if server supports "textDocument/willSaveWaitUntil".
+		if not client:supports_method('textDocument/willSaveWaitUntil')
+			and client:supports_method('textDocument/formatting') then
+			vim.api.nvim_create_autocmd('BufWritePre', {
+				group = vim.api.nvim_create_augroup('my.lsp', {clear=false}),
+				buffer = ev.buf,
+				callback = function()
+					vim.lsp.buf.format({ bufnr = ev.buf, id = client.id, timeout_ms = 1000 })
+				end,
+			})
+		end
+	end,
+})
