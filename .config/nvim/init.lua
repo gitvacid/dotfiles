@@ -1,6 +1,6 @@
 -- soso neovim 12+ config 
-vim.g.mapleader = " "
-vim.g.maplocalleader = "\\"
+vim.g.mapleader = ' '
+vim.g.maplocalleader = '\\'
 
 -- options
 vim.o.number = true
@@ -13,8 +13,8 @@ vim.o.splitbelow = true
 vim.o.shiftwidth = 4
 vim.o.tabstop = 4
 vim.o.scrolloff = 18
-vim.o.winborder = "bold"
-vim.o.signcolumn = "yes"
+vim.o.winborder = 'bold'
+vim.o.signcolumn = 'yes'
 
 -- keybindings
 local map = vim.keymap.set
@@ -27,8 +27,9 @@ map('n', '<Esc>', vim.cmd.nohlsearch)
 map({'n', 'i'}, '<C-s>', ':w<CR>')
 map('n', '<C-a>', 'gg<S-v>G')
 
-map({'n','v'}, '<leader>y', '"+y')
-map({'n','v'}, '<leader>p', '"+p')
+
+map({'n', 'i'}, '<leader>y', '"+y')
+map({'n', 'i'}, '<leader>p', '"+p')
 
 map('n', '<C-d>', '<C-d>zz')
 map('n', '<C-u>', '<C-u>zz')
@@ -44,27 +45,34 @@ map('n', '<leader>t', ':sp term://bash<CR>')
 map('t', '<Esc>', '<C-\\><C-n>')
 
 vim.pack.add({
-  "https://github.com/vague-theme/vague.nvim",
-  "https://github.com/brenoprata10/nvim-highlight-colors", 
-  "https://github.com/vyfor/cord.nvim",
-  "https://github.com/neovim/nvim-lspconfig",
+  'https://github.com/vague-theme/vague.nvim',
+  'https://github.com/brenoprata10/nvim-highlight-colors', 
+  'https://github.com/vyfor/cord.nvim',
+  'https://github.com/neovim/nvim-lspconfig',
+  'https://github.com/nvim-treesitter/nvim-treesitter',
 })
 
-require("cord").setup({})
+require('cord').setup({})
 -- colors
-require("vague").setup({
+require('vague').setup({
 	italic = false,
 })
 require('nvim-highlight-colors').setup({})
-vim.cmd("colorscheme vague")
+vim.cmd('colorscheme vague')
 
 
 -- lsp & stuff
 vim.lsp.enable({
-	"clangd",
+	'clangd',
 })
+-- treesitter highlighting
+vim.api.nvim_create_autocmd('FileType', {
+  pattern = { 'c', },
+  callback = function() vim.treesitter.start() end,
+})
+
+-- lsp-autocomplete,  grabbed it straight from the docs
 vim.cmd[[set completeopt+=menuone,noselect,popup]]
--- grabbed it straight from the docs
 vim.api.nvim_create_autocmd('LspAttach', {
 	group = vim.api.nvim_create_augroup('my.lsp', {}),
 	callback = function(ev)
@@ -82,8 +90,8 @@ vim.api.nvim_create_autocmd('LspAttach', {
 			vim.lsp.completion.enable(true, client.id, ev.buf, {autotrigger = true})
 		end
 
-		-- Auto-format ("lint") on save.
-		-- Usually not needed if server supports "textDocument/willSaveWaitUntil".
+		-- Auto-format ('lint') on save.
+		-- Usually not needed if server supports 'textDocument/willSaveWaitUntil'.
 		if not client:supports_method('textDocument/willSaveWaitUntil')
 			and client:supports_method('textDocument/formatting') then
 			vim.api.nvim_create_autocmd('BufWritePre', {
