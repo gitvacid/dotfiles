@@ -7,7 +7,7 @@ set $right l
 set $term foot
 set $menu rofi -show drun
 set $lock ~/scripts/blur_lock.sh
-font pango:Iosevka Nerd Font 12
+font pango:Iosevka Nerd Font 15
 
 ### Output configuration
 # You can get the names of your outputs by running: swaymsg -t get_outputs
@@ -187,6 +187,7 @@ exec --no-startup-id gammastep-indicator -c ~/.config/gammastep/gammastep.conf
 exec --no-startup-id autotiling-rs
 exec --no-startup-id playerctld daemon
 exec --no-startup-id mpd-mpris
+exec --no-startup-id /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
 
 # manually starting it since for some reason it doesn't start on its own
 exec --no-startup-id systemctl --user start xdg-desktop-portal-wlr

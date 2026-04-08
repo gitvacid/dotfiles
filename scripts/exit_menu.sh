@@ -1,6 +1,6 @@
 #!/bin/sh
 confirm_exit=$(echo -e "Yes\nNo" | rofi \
-	-theme-str 'window {location: center; fullscreen: false; padding: 0; width: 300px;}' \
+	-theme-str 'window {location: center; fullscreen: false; padding: 10px; width: 300px;}' \
 	-theme-str 'mainbox {children: [ "message", "listview" ];}' \
 	-theme-str 'message {border: 0;}' \
 	-theme-str 'listview {scrollbar: false; lines: 1; columns: 2;}' \

@@ -1,4 +1,5 @@
 -- OPTIONS
+vim.cmd[[set mouse=]]
 vim.o.number = true
 vim.o.relativenumber = true
 vim.o.cursorline = true
@@ -42,6 +43,9 @@ map('n', '<C-h>', '<C-w><C-h>')
 map('n', '<C-j>', '<C-w><C-j>')
 map('n', '<C-k>', '<C-w><C-k>')
 map('n', '<C-l>', '<C-w><C-l>')
+-- tabs
+map('n', '<A-Tab>', ':tabnext<CR>')
+map('n', '<A-S-Tab>', ':tabprevious<CR>')
 -- terminal
 map('n', '<leader>t', ':sp term://bash<CR>')
 map('t', '<Esc>', '<C-\\><C-n>')
@@ -53,7 +57,8 @@ require('vague').setup({
 	italic = false,
 })
 require('nvim-highlight-colors').setup({})
-vim.cmd('colorscheme vague')
+vim.cmd.colorscheme[[vague]]
+vim.cmd[[hi StatusLine guibg=NONE]]
 
 -- LSP & stuff
 vim.lsp.enable({'clangd'})

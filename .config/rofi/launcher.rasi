@@ -1,11 +1,16 @@
 @import "./vague.rasi"
+configuration {
+	modi:                       "drun,run";
+	drun-display-format:        "{name}";
+}
+
 window {
     background-color: @background;
 	location: west;
 	anchor: center;
     border: 0;
-	padding:  10px 0 10px 10px;
-	width: 400px;
+	padding: 18px;
+	width: 330px;
 }
 
 mainbox {
@@ -35,8 +40,8 @@ scrollbar {
 listview {
     border:       1px solid 0 0;
     border-color: @separatorcolor;
-    spacing:      0px;
-	lines: 		  15;
+    spacing:      0;
+	lines: 		  14;
     scrollbar:    @scrollbar;
 }
 
