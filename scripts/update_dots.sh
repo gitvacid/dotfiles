@@ -3,6 +3,7 @@ cp -r ~/.config/foot ~/dotfiles/.config/
 cp -r ~/.config/fastfetch ~/dotfiles/.config/
 cp -r ~/.config/mako ~/dotfiles/.config/
 cp -r ~/.config/nvim ~/dotfiles/.config/
+cp -r ~/.config/tmux/ ~/dotfiles/.config/
 cp -r ~/.config/rofi ~/dotfiles/.config/
 cp -r ~/.config/sway ~/dotfiles/.config/
 cp -r ~/.config/waybar ~/dotfiles/.config/

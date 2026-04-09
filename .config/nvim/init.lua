@@ -12,6 +12,7 @@ vim.o.tabstop = 2
 vim.o.scrolloff = 18
 vim.o.winborder = 'bold'
 vim.o.signcolumn = 'yes'
+vim.o.showtabline = 2
 
 -- INSTALL PLUGINS
 vim.pack.add({
@@ -44,8 +45,8 @@ map('n', '<C-j>', '<C-w><C-j>')
 map('n', '<C-k>', '<C-w><C-k>')
 map('n', '<C-l>', '<C-w><C-l>')
 -- tabs
-map('n', '<A-Tab>', ':tabnext<CR>')
-map('n', '<A-S-Tab>', ':tabprevious<CR>')
+map('n', '<Tab>', ':tabnext<CR>')
+map('n', '<S-Tab>', ':tabprevious<CR>')
 -- terminal
 map('n', '<leader>t', ':sp term://bash<CR>')
 map('t', '<Esc>', '<C-\\><C-n>')
@@ -58,7 +59,8 @@ require('vague').setup({
 })
 require('nvim-highlight-colors').setup({})
 vim.cmd.colorscheme[[vague]]
-vim.cmd[[hi StatusLine guibg=NONE]]
+vim.cmd[[hi StatusLine guibg=None]]
+vim.cmd[[hi TabLineSel guibg=#aeaed1]]
 
 -- LSP & stuff
 vim.lsp.enable({'clangd'})
