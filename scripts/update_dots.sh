@@ -7,7 +7,6 @@ cp -r ~/.config/tmux/ ~/dotfiles/.config/
 cp -r ~/.config/rofi ~/dotfiles/.config/
 cp -r ~/.config/sway ~/dotfiles/.config/
 cp -r ~/.config/waybar ~/dotfiles/.config/
-cp -r ~/.config/gammastep/ ~/dotfiles/.config/
 cp ~/.bashrc ~/dotfiles/
 cp ~/.fzf_vague ~/dotfiles/
 cp ~/scripts/update_dots.sh ~/dotfiles/scripts/

@@ -14,3 +14,5 @@ alias swconf='nvim ~/.config/sway/config'
 alias ff='fastfetch -c ~/.config/fastfetch/ff.jsonc'
 alias updot='~/scripts/update_dots.sh'
 alias chwall='~/scripts/change_wall.sh'
+
+ff
