@@ -3,7 +3,7 @@
 [[ $- != *i* ]] && return
 
 source /usr/share/git/completion/git-prompt.sh
-PS1='\u@\h: \w $(__git_ps1 " (%s) ")\$ '
+PS1='\u@\h: \w $(__git_ps1 "(%s)") \$ '
 
 export FZF_DEFAULT_OPTS_FILE=~/.fzf_vague
 
