@@ -1,5 +1,6 @@
 -- OPTIONS
-vim.cmd[[set mouse=]]
+local vim = vim
+vim.cmd [[set mouse=]]
 vim.o.number = true
 vim.o.relativenumber = true
 vim.o.cursorline = true
@@ -16,11 +17,12 @@ vim.o.showtabline = 2
 
 -- INSTALL PLUGINS
 vim.pack.add({
-  'https://github.com/vague-theme/vague.nvim',
-  'https://github.com/brenoprata10/nvim-highlight-colors', 
-  'https://github.com/vyfor/cord.nvim',
-  'https://github.com/neovim/nvim-lspconfig',
-  'https://github.com/nvim-treesitter/nvim-treesitter',
+	'https://github.com/vague-theme/vague.nvim',
+	'https://github.com/brenoprata10/nvim-highlight-colors',
+	'https://github.com/vyfor/cord.nvim',
+	'https://github.com/neovim/nvim-lspconfig',
+	'https://github.com/nvim-treesitter/nvim-treesitter',
+	'https://github.com/mason-org/mason.nvim',
 })
 
 -- KEYBINDINGS
@@ -35,8 +37,8 @@ map('n', '<C-a>', 'gg<S-v>G')
 map('n', '<C-d>', '<C-d>zz')
 map('n', '<C-u>', '<C-u>zz')
 -- clipboard
-map({'n', 'v'}, '<leader>y', '"+y')
-map({'n', 'v'}, '<leader>p', '"+p')
+map({ 'n', 'v' }, '<leader>y', '"+y')
+map({ 'n', 'v' }, '<leader>p', '"+p')
 -- windows
 map('n', '<leader>sh', ':sp<CR>')
 map('n', '<leader>sv', ':vsp<CR>')
@@ -58,18 +60,20 @@ require('vague').setup({
 	italic = false,
 })
 require('nvim-highlight-colors').setup({})
-vim.cmd.colorscheme[[vague]]
-vim.cmd[[hi StatusLine guibg=None]]
-vim.cmd[[hi TabLineSel guibg=#aeaed1]]
+vim.cmd.colorscheme [[vague]]
+vim.cmd [[hi StatusLine guibg=None]]
+vim.cmd [[hi TabLineSel guibg=#aeaed1]]
+
+require("mason").setup({})
 
 -- LSP & stuff
-vim.lsp.enable({'clangd'})
+vim.lsp.enable({ 'clangd', 'lua_ls' })
 vim.api.nvim_create_autocmd('FileType', {
-  pattern = { 'c', 'lua' },
-  callback = function() vim.treesitter.start() end,
+	pattern = { 'c', 'lua' },
+	callback = function() vim.treesitter.start() end,
 })
 -- lsp-autocomplete,  grabbed it straight from the docs
-vim.cmd[[set completeopt+=menuone,noselect,popup]]
+vim.cmd [[set completeopt+=menuone,noselect,popup]]
 vim.api.nvim_create_autocmd('LspAttach', {
 	group = vim.api.nvim_create_augroup('my.lsp', {}),
 	callback = function(ev)
@@ -78,13 +82,13 @@ vim.api.nvim_create_autocmd('LspAttach', {
 		if client:supports_method('textDocument/completion') then
 			local chars = {}; for i = 32, 126 do table.insert(chars, string.char(i)) end
 			client.server_capabilities.completionProvider.triggerCharacters = chars
-			vim.lsp.completion.enable(true, client.id, ev.buf, {autotrigger = true})
+			vim.lsp.completion.enable(true, client.id, ev.buf, { autotrigger = true })
 		end
 		-- Auto-format ('lint') on save
 		if not client:supports_method('textDocument/willSaveWaitUntil')
-			and client:supports_method('textDocument/formatting') then
+				and client:supports_method('textDocument/formatting') then
 			vim.api.nvim_create_autocmd('BufWritePre', {
-				group = vim.api.nvim_create_augroup('my.lsp', {clear=false}),
+				group = vim.api.nvim_create_augroup('my.lsp', { clear = false }),
 				buffer = ev.buf,
 				callback = function()
 					vim.lsp.buf.format({ bufnr = ev.buf, id = client.id, timeout_ms = 1000 })

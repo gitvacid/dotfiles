@@ -12,7 +12,8 @@ alias la='ls -lAFh --color=auto'
 alias grep='grep --color=auto'
 alias swconf='nvim ~/.config/sway/config'
 alias ff='fastfetch -c ~/.config/fastfetch/ff.jsonc'
-alias updot='~/scripts/update_dots.sh'
 alias chwall='~/scripts/change_wall.sh'
+alias osage='~/scripts/osage.sh'
+alias updot='~/scripts/update_dots.sh'
 
 ff

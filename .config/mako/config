@@ -1,6 +1,6 @@
 background-color=#141415
 border-color=#cdcdcd
-font=Iosevka Nerd Font 14
+font=Iosevka Nerd Font 18
 default-timeout=7000
 
 on-button-left=invoke-default-action
